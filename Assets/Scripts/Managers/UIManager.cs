@@ -53,10 +53,12 @@ public class UIManager : MonoBehaviour
     {
         if (currentGuess.Count != _uiController.FieldCount) return;
 
-        var feedback = FeedbackChecker.GetFeedback(currentGuess, GameManager.Instance.GetCurrentAnswer);
+        var feedback = _gameController.OnGuessSubmitted(currentGuess);
         _uiController.ShowPastAttempt(currentGuess, feedback);
 
-        StartNewRound(GameManager.Instance.currentMode.digitCount);
+        currentGuess = new List<int>();
+        cursorIndex = 0;
+        _uiController.UpdateFields(currentGuess, cursorIndex);
     }
 
     public void RetryGameMode()

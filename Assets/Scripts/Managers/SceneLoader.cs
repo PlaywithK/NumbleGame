@@ -70,6 +70,6 @@ public class SceneLoader : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         loadOp.allowSceneActivation = true;
         while (!loadOp.isDone) yield return null;
-        SceneManager.UnloadSceneAsync(loadingSceneName);
+        //SceneManager.UnloadSceneAsync(loadingSceneName);
     }
 }

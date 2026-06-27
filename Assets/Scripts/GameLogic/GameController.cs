@@ -86,6 +86,8 @@ public class GameController : MonoBehaviour
         {
             uiController.ClearPastAttempts();
             uiController.InitGuessFields(digitCount);
+            
+            uiController.UpdateFields(new List<int>(), 0);
         }
 
         losePanel.SetActive(false);
