@@ -504,7 +504,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "ENDLESS MODE\n> beginnend mit 3 Ziffern, bis zu 6 Ziffern\n> 5 Versuche\n>
-    Kein Zeitlimit\n\nTexte fran\xE7ais\xE9\nT\xFCrk\xE7e metin\n\u0420\u0443\u0441\u0441\u043A\u0438\u0439
+    Kein Zeitlimit\n\n\xD8\xD8\xD8\xD8\xD8\nTexte fran\xE7ais\xE9\nT\xFCrk\xE7e metin\n\u0420\u0443\u0441\u0441\u043A\u0438\u0439
     \u0442\u0435\u043A\u0441\u0442\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f690c4376eab8364cb5b8512d2d79ae8, type: 2}
