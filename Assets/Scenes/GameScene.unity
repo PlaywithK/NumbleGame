@@ -3780,6 +3780,7 @@ MonoBehaviour:
   _gameController: {fileID: 108535676}
   _uiController: {fileID: 1868329923}
   _uiInput: {fileID: 2127915394}
+  _inputPanel: {fileID: 1443207051}
   _mainMenuButton: {fileID: 715318223}
   _retryButton: {fileID: 1911522554}
   _resultPanel: {fileID: 1860477712}

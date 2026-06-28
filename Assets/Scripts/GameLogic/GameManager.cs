@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
         availableModes = new List<ModeConfig>
         {
             new ModeConfig("Endless", 3, 5, false, 0f, ModeType.Endless),
-            new ModeConfig("Speedrun", 5, 5, false, 30f, ModeType.Speedrun),
+            new ModeConfig("Speedrun", 5, 5, false, 45f, ModeType.Speedrun),
             new ModeConfig("Classic 3", 3, 5, false, 0f, ModeType.Classic),
             new ModeConfig("Classic 4", 4, 5, false, 0f, ModeType.Classic),
             new ModeConfig("Classic 5", 5, 5, false, 0f, ModeType.Classic),
@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadMode(int index)
     {
-        if (SceneManager.GetActiveScene().name != "GameScene") return;
+        if (SceneManager.GetActiveScene().name != "MenuScene") return;
         
         if (index >= 0 && index < availableModes.Count)
         {

@@ -6,7 +6,7 @@ public class DropDownMenu : MonoBehaviour
     public GameObject dropdownMenu;
     public GameObject pcUIRoot;
     public GameObject mobileUIRoot;
-    private GameObject activeUIRoot;
+    private GameObject _activeUIRoot;
 
     [Header("Sub Menus")]
     private GameObject _optionsPanel;
@@ -18,15 +18,15 @@ public class DropDownMenu : MonoBehaviour
 #if UNITY_ANDROID || UNITY_EDITOR
         pcUIRoot.SetActive(false);
         mobileUIRoot.SetActive(true);
-        activeUIRoot = mobileUIRoot;
+        _activeUIRoot = mobileUIRoot;
 #else
         pcUIRoot.SetActive(true);
         mobileUIRoot.SetActive(false);
-        activeUIRoot = pcUIRoot;
+        _activeUIRoot = pcUIRoot;
 #endif
-        _optionsPanel = activeUIRoot.transform.Find("OptionsPanel")?.gameObject;
-        _achievementPanel = activeUIRoot.transform.Find("AchievementPanel")?.gameObject;
-        _quitConfirmPanel = activeUIRoot.transform.Find("QuitConfirmPanel")?.gameObject;
+        _optionsPanel = _activeUIRoot.transform.Find("OptionsPanel")?.gameObject;
+        _achievementPanel = _activeUIRoot.transform.Find("AchievementPanel")?.gameObject;
+        _quitConfirmPanel = _activeUIRoot.transform.Find("QuitConfirmPanel")?.gameObject;
 
         if (!_optionsPanel || !_achievementPanel || !_quitConfirmPanel)
         {

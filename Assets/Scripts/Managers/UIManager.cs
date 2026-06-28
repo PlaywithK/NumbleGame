@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 
 public class UIManager : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class UIManager : MonoBehaviour
     private List<int> currentGuess = new List<int>();
     private int cursorIndex = 0;
 
+    [SerializeField] private GameObject _inputPanel;
     [SerializeField] private Button _mainMenuButton;
     [SerializeField] private Button _retryButton;
     [SerializeField] private GameObject _resultPanel;
@@ -56,21 +58,14 @@ public class UIManager : MonoBehaviour
         if (_resultPanel != null)
         {
             _resultPanel.SetActive(true);
-        }
+            _inputPanel.SetActive(false);
+            EventSystem.current.SetSelectedGameObject(_mainMenuButton.gameObject);
 
-        if (_resultPanelImage != null)
-        {
             _resultPanelImage.color = isWin ? _winColor : _loseColor;
-        }
 
-        if (_winText != null)
-        {
             _winText.gameObject.SetActive(isWin);
             //_winText.transform.localScale = Vector3.one * 0.7f;
-        }
 
-        if (_loseText != null)
-        {
             _loseText.gameObject.SetActive(!isWin);
             //_loseText.transform.localScale = Vector3.one * 0.7f;
         }

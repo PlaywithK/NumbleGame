@@ -4,6 +4,7 @@ using UnityEngine.EventSystems;
 
 public class MainMenuPanels : MonoBehaviour
 {
+    [Header("Buttons")]
     [SerializeField] private Button _startButton;
     [SerializeField] private Button _classicModeButton;
     [SerializeField] private Button _classicModeButton_3;
