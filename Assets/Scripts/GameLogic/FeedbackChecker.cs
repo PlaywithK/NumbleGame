@@ -35,7 +35,6 @@ public class FeedbackChecker
 
             if (result[i] == 0) result[i] = FeedbackResult.Wrong;
         }
-
         return result;
     }
 }

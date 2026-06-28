@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class UIManager : MonoBehaviour
 {
@@ -90,6 +91,25 @@ public class UIManager : MonoBehaviour
         _uiController.InitGuessFields(digitCount);
         _uiController.ClearPastAttempts();
         _uiController.UpdateFields(currentGuess, cursorIndex);
+    }
+    private void Update()
+    {
+        var k = Keyboard.current;
+        if (k == null) return;
+
+        if (k.digit0Key.wasPressedThisFrame || k.numpad0Key.wasPressedThisFrame) AddDigit(0);
+        if (k.digit1Key.wasPressedThisFrame || k.numpad1Key.wasPressedThisFrame) AddDigit(1);
+        if (k.digit2Key.wasPressedThisFrame || k.numpad2Key.wasPressedThisFrame) AddDigit(2);
+        if (k.digit3Key.wasPressedThisFrame || k.numpad3Key.wasPressedThisFrame) AddDigit(3);
+        if (k.digit4Key.wasPressedThisFrame || k.numpad4Key.wasPressedThisFrame) AddDigit(4);
+        if (k.digit5Key.wasPressedThisFrame || k.numpad5Key.wasPressedThisFrame) AddDigit(5);
+        if (k.digit6Key.wasPressedThisFrame || k.numpad6Key.wasPressedThisFrame) AddDigit(6);
+        if (k.digit7Key.wasPressedThisFrame || k.numpad7Key.wasPressedThisFrame) AddDigit(7);
+        if (k.digit8Key.wasPressedThisFrame || k.numpad8Key.wasPressedThisFrame) AddDigit(8);
+        if (k.digit9Key.wasPressedThisFrame || k.numpad9Key.wasPressedThisFrame) AddDigit(9);
+
+        if (k.backspaceKey.wasPressedThisFrame || k.deleteKey.wasPressedThisFrame) DeleteLastDigit();
+        if (k.enterKey.wasPressedThisFrame || k.numpadEnterKey.wasPressedThisFrame) SubmitGuess();
     }
     public void AddDigit(int digit)
     {

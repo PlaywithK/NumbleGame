@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 
 public class MenuManager : MonoBehaviour
 {
@@ -7,15 +9,7 @@ public class MenuManager : MonoBehaviour
 
     private DeviceManager _deviceManager;
     private GameObject _currentCanvas;
-    private MainMenuPanels _currentPanels;
-
-    private void Awake()
-    {
-        if (_deviceManager == null)
-        {
-            _deviceManager = FindAnyObjectByType<DeviceManager>();
-        }
-    }
+    [HideInInspector] public MainMenuPanels currentPanels;
 
     private void Start()
     {
@@ -30,83 +24,93 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (currentPanels == null) return;
+        if (HandleBackInput()) return;
+
+        //Nur wenn im Startbildschirm
+        if (currentPanels.mainMenuPanel != null && currentPanels.mainMenuPanel.activeSelf)
+        {
+            var keyboard = Keyboard.current;
+            if (keyboard != null && keyboard.anyKey.wasPressedThisFrame)
+            {
+                ShowPanel(currentPanels.modeSelectPanel);
+            }
+        }
+    }
+
+    private bool HandleBackInput()
+    {
+        var keyboard = Keyboard.current;
+        if (keyboard != null && keyboard.escapeKey.wasPressedThisFrame)
+        {
+            GoBack();
+            return true;
+        }
+
+        var gamepad = Gamepad.current;
+        if (gamepad != null)
+        {
+            ButtonControl bButton = gamepad.buttonEast;
+            if (bButton != null && bButton.wasPressedThisFrame)
+            {
+                GoBack();
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void GoBack()
+    {
+        if (currentPanels == null) return;
+
+        if (currentPanels.settingsPanel.activeSelf || currentPanels.modeSelectPanel.activeSelf)
+        {
+            ShowPanel(currentPanels.mainMenuPanel);
+        }
+        else if (currentPanels.classicPanel.activeSelf)
+        {
+            ShowPanel(currentPanels.modeSelectPanel);
+        }
+    }
+
     public void InitializeCanvas(bool isMobile)
     {
-        if (isMobile)
-        {
-            _currentCanvas = Instantiate(_mobileCanvas);
-        }
-        else
-        {
-            _currentCanvas = Instantiate(_pcCanvas);
-        }
+        _currentCanvas = Instantiate(isMobile ? _mobileCanvas : _pcCanvas);
         InitializePanels();
     }
 
     private void InitializePanels()
     {
-        _currentPanels = _currentCanvas.GetComponent<MainMenuPanels>();
-        if (_currentPanels != null)
-        {
-            _currentPanels.Initialize(this);
-        }
-        else
-        {
-            Log.Error("MainMenuPanels is missing!");
-        }
-        ShowMainMenu();
+        currentPanels = _currentCanvas.GetComponent<MainMenuPanels>();
+        currentPanels.Initialize(this);
+        ShowPanel(currentPanels.mainMenuPanel);
     }
 
     private void HideAllPanels()
     {
-        _currentPanels.mainMenuPanel.SetActive(false);
-        _currentPanels.settingsPanel.SetActive(false);
-        _currentPanels.modeSelectPanel.SetActive(false);
-        _currentPanels.classicPanel.SetActive(false);
+        currentPanels.mainMenuPanel.SetActive(false);
+        currentPanels.settingsPanel.SetActive(false);
+        currentPanels.modeSelectPanel.SetActive(false);
+        currentPanels.classicPanel.SetActive(false);
     }
 
-    public void ShowMainMenu()
+    public void ShowPanel(GameObject panel)
     {
-        HideAllPanels();
-        _currentPanels.mainMenuPanel.SetActive(true);
-    }
+        if (currentPanels == null || panel == null) return;
 
-    public void ShowSettings()
-    {
         HideAllPanels();
-        _currentPanels.settingsPanel.SetActive(true);
+        panel.SetActive(true);
+        currentPanels.SelectPanelDefault(panel);
     }
-
-    public void ShowModeSelect()
-    {
-        HideAllPanels();
-        _currentPanels.modeSelectPanel.SetActive(true);
-    }
-
-    public void ShowClassicSelect()
-    {
-        HideAllPanels();
-        _currentPanels.classicPanel.SetActive(true);
-    }
-
 
     public void OnModeSelectPressed(int modeIndex)
     {
         GameModeSelection.SelectedIndex = modeIndex;
-
-        if (GameManager.Instance != null)
-        {
-            GameManager.Instance.LoadMode(modeIndex);
-        }
-
-        if (SceneLoader.Instance != null)
-        {
-            SceneLoader.Instance.LoadScene("GameScene");
-        }
-        else
-        {
-            Log.Error("SceneLoader is missing!");
-        }
+        GameManager.Instance.LoadMode(modeIndex);
+        SceneLoader.Instance.LoadScene("GameScene");
     }
 
     public void OnQuitButtonPressed()

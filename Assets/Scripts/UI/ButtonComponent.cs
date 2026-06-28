@@ -2,7 +2,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ButtonComponent : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
+public class ButtonComponent : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler, ISelectHandler, IDeselectHandler, ISubmitHandler
 {
     [Header("Scale")]
     [SerializeField] private Vector3 _hoverScale = Vector3.one * 1.1f;
@@ -54,7 +54,45 @@ public class ButtonComponent : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        AudioManager.Instance.PlaySFX("ButtonHover");
+        HandleHoverEnter();
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        HandleHoverExit();
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        HandlePressStart();
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        HandlePressEnd();
+    }
+
+    public void OnSelect(BaseEventData eventData)
+    {
+        HandleHoverEnter();
+    }
+
+    public void OnDeselect(BaseEventData eventData)
+    {
+        HandleHoverExit();
+    }
+
+    public void OnSubmit(BaseEventData eventData)
+    {
+        HandlePressStart();
+        DOVirtual.DelayedCall(_pressDuration, HandlePressEnd);
+    }
+
+    private void HandleHoverEnter()
+    {
+        if (_isHovered) return;
+
+        PlaySfx("ButtonHover");
 
         _isHovered = true;
         StopHoverTweens();
@@ -64,7 +102,7 @@ public class ButtonComponent : MonoBehaviour, IPointerEnterHandler, IPointerExit
         StartRotation();
     }
 
-    public void OnPointerExit(PointerEventData eventData)
+    private void HandleHoverExit()
     {
         _isHovered = false;
         _isPressed = false;
@@ -75,7 +113,7 @@ public class ButtonComponent : MonoBehaviour, IPointerEnterHandler, IPointerExit
         transform.DOLocalRotateQuaternion(_originalRotation, _hoverDuration).SetEase(Ease.OutQuad);
     }
 
-    public void OnPointerDown(PointerEventData eventData)
+    private void HandlePressStart()
     {
         if (_isPressed) return;
 
@@ -83,19 +121,24 @@ public class ButtonComponent : MonoBehaviour, IPointerEnterHandler, IPointerExit
         transform.DOKill();
         transform.DOScale(_pressedScaleVector, _pressDuration).SetEase(Ease.OutQuad);
 
-        if (AudioManager.Instance != null)
-        {
-            AudioManager.Instance.PlaySFX(_clickSfxName);
-        }
+        PlaySfx(_clickSfxName);
     }
 
-    public void OnPointerUp(PointerEventData eventData)
+    private void HandlePressEnd()
     {
         if (!_isPressed) return;
 
         _isPressed = false;
         transform.DOKill();
         transform.DOScale(_isHovered ? _hoverScale : _originalScale, _releaseDuration).SetEase(Ease.OutBack);
+    }
+
+    private void PlaySfx(string soundName)
+    {
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlaySFX(soundName);
+        }
     }
 
     private void StartRotation()

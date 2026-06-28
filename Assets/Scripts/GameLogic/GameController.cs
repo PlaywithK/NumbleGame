@@ -31,6 +31,9 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
+        Debug.Assert(uiController != null, "UIController missing!");
+        Debug.Assert(uiManager != null, "UIManager missing!");
+
         mode = GameManager.Instance.currentMode;
 
         if (mode.type == ModeType.Endless)
@@ -71,31 +74,20 @@ public class GameController : MonoBehaviour
         }
 
         //UI laden
-        if (uiController != null)
-        {
-            uiController.ClearPastAttempts();
-            uiController.InitGuessFields(digitCount);
-
-            uiController.UpdateFields(new List<int>(), 0);
-        }
-
-        if (uiManager != null)
-        {
-            uiManager.HideResultPanel();
-        }
+        uiController.ClearPastAttempts();
+        uiController.InitGuessFields(digitCount);
+        uiController.UpdateFields(new List<int>(), 0);
+        uiManager.HideResultPanel();
 
         gameEnded = false;
-
         UpdateUI();
     }
 
     public FeedbackChecker.FeedbackResult[] OnGuessSubmitted(List<int> input)
     {
         var currentCode = GameManager.Instance.GetCurrentAnswer;
-
         currentAttempts++;
         var feedback = FeedbackChecker.GetFeedback(input, currentCode);
-
         UpdateUI();
 
 
@@ -107,7 +99,6 @@ public class GameController : MonoBehaviour
         {
             Lose();
         }
-
         return feedback;
     }
 
@@ -127,9 +118,8 @@ public class GameController : MonoBehaviour
 
         if (mode.type == ModeType.Endless)
         {
+            //Im Endless Mode alle zwei "Wins" Ziffern erhöhen (max 6)
             endlessWinStreak++;
-
-            //Alle zwei Erfolge Ziffern erhöhen (max 6)
             if (endlessWinStreak % 2 == 0 && endlessDigitCount < 6)
             {
                 endlessDigitCount++;
@@ -140,10 +130,7 @@ public class GameController : MonoBehaviour
 
         //Normale Win-Logik
         gameEnded = true;
-        if (uiManager != null)
-        {
-            uiManager.ShowResult(true);
-        }
+        uiManager.ShowResult(true);
 
         //Achievements checken
         int codeLength = currentCode.Count;
@@ -158,11 +145,7 @@ public class GameController : MonoBehaviour
     {
         if (gameEnded) return;
         gameEnded = true;
-
-        if (uiManager != null)
-        {
-            uiManager.ShowResult(false);
-        }
+        uiManager.ShowResult(false);
     }
 
     void UpdateUI()

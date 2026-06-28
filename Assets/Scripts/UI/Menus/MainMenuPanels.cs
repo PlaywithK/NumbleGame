@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class MainMenuPanels : MonoBehaviour
 {
-
     [SerializeField] private Button _startButton;
     [SerializeField] private Button _classicModeButton;
     [SerializeField] private Button _classicModeButton_3;
@@ -30,10 +30,10 @@ public class MainMenuPanels : MonoBehaviour
     {
         _menuManager = menuManager;
 
-        _startButton.onClick.AddListener(_menuManager.ShowModeSelect);
-        _classicModeButton.onClick.AddListener(_menuManager.ShowClassicSelect);
-        _backToMainMenu.onClick.AddListener(_menuManager.ShowMainMenu);
-        _backToModeSelect.onClick.AddListener(_menuManager.ShowModeSelect);
+        _startButton.onClick.AddListener(() => _menuManager.ShowPanel(_menuManager.currentPanels.modeSelectPanel));
+        _classicModeButton.onClick.AddListener(() => _menuManager.ShowPanel(_menuManager.currentPanels.classicPanel));
+        _backToMainMenu.onClick.AddListener(() => _menuManager.ShowPanel(_menuManager.currentPanels.mainMenuPanel));
+        _backToModeSelect.onClick.AddListener(() => _menuManager.ShowPanel(_menuManager.currentPanels.modeSelectPanel));
 
         _endlessModeButton.onClick.AddListener(() => _menuManager.OnModeSelectPressed(0));
         _speedrunModeButton.onClick.AddListener(() => _menuManager.OnModeSelectPressed(1));
@@ -42,5 +42,30 @@ public class MainMenuPanels : MonoBehaviour
         _classicModeButton_4.onClick.AddListener(() => _menuManager.OnModeSelectPressed(3));
         _classicModeButton_5.onClick.AddListener(() => _menuManager.OnModeSelectPressed(4));
         _classicModeButton_6.onClick.AddListener(() => _menuManager.OnModeSelectPressed(5));
+    }
+
+    public void SelectPanelDefault(GameObject panel)
+    {
+        if (EventSystem.current == null || panel == null) return;
+
+        Button targetButton = null;
+
+        if (panel == mainMenuPanel)
+        {
+            targetButton = _startButton;
+        }
+        else if (panel == modeSelectPanel)
+        {
+            targetButton = _classicModeButton;
+        }
+        else if (panel == classicPanel)
+        {
+            targetButton = _classicModeButton_3;
+        }
+
+        if (targetButton != null)
+        {
+            EventSystem.current.SetSelectedGameObject(targetButton.gameObject);
+        }
     }
 }

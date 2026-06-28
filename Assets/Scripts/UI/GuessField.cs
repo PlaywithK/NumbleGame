@@ -7,27 +7,27 @@ public enum FieldState { Empty, Digit, Cursor }
 public class GuessField : MonoBehaviour
 {
     [Header("Guess Field")]
-    public TMP_Text text;
-    private FieldState state = FieldState.Empty;
-    private Coroutine blinkCoroutine;
+    public TMP_Text digitText;
+    private FieldState _state = FieldState.Empty;
+    private Coroutine _blinkCoroutine;
 
     public void SetDigit(char digit)
     {
-        state = FieldState.Digit;
+        _state = FieldState.Digit;
         StopBlinking();
-        text.text = digit.ToString();
+        digitText.text = digit.ToString();
     }
 
     public void SetEmpty()
     {
-        state = FieldState.Empty;
+        _state = FieldState.Empty;
         StopBlinking();
-        text.text = "_";
+        digitText.text = "_";
     }
 
     public void SetCursor(bool active)
     {
-        state = active ? FieldState.Cursor : FieldState.Empty;
+        _state = active ? FieldState.Cursor : FieldState.Empty;
 
         if (active)
         {
@@ -36,34 +36,34 @@ public class GuessField : MonoBehaviour
         else
         {
             StopBlinking();
-            text.text = "";
+            digitText.text = "";
         }
     }
 
     private void StartBlinking()
     {
-        if (blinkCoroutine != null) StopCoroutine(blinkCoroutine);
-        blinkCoroutine = StartCoroutine(Blink());
+        if (_blinkCoroutine != null) StopCoroutine(_blinkCoroutine);
+        _blinkCoroutine = StartCoroutine(Blink());
     }
 
     private void StopBlinking()
     {
-        if (blinkCoroutine != null) StopCoroutine(blinkCoroutine);
-        blinkCoroutine = null;
+        if (_blinkCoroutine != null) StopCoroutine(_blinkCoroutine);
+        _blinkCoroutine = null;
     }
 
     public void SetColor(Color c)
     {
-        text.color = c;
+        digitText.color = c;
     }
 
     private IEnumerator Blink()
     {
-        while (state == FieldState.Cursor)
+        while (_state == FieldState.Cursor)
         {
-            text.text = "█";
+            digitText.text = "█";
             yield return new WaitForSeconds(0.5f);
-            text.text = "";
+            digitText.text = "";
             yield return new WaitForSeconds(0.5f);
         }
     }

@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -45,6 +46,8 @@ public class GameManager : MonoBehaviour
 
     public void LoadMode(int index)
     {
+        if (SceneManager.GetActiveScene().name != "GameScene") return;
+        
         if (index >= 0 && index < availableModes.Count)
         {
             CurrentModeIndex = index;

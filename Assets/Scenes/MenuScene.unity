@@ -828,6 +828,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AchievementPopUp
       objectReference: {fileID: 0}
+    - target: {fileID: 7928405508886228276, guid: aedd40d23cf265040b9031aa8d8f65c5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9169172923164391957, guid: aedd40d23cf265040b9031aa8d8f65c5, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
