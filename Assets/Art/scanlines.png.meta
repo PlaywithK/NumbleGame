@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 3871ea32187d202469b450032f07e237
+guid: c1714ea2c73b68d4ab833aa62e5e67f6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1109005358129606109
-    second: NumbleStylesheet_ModeSelect_0
-  - first:
-      213: -3618473701065684549
-    second: NumbleStylesheet_ModeSelect_1
+      213: 4209798607175880710
+    second: scanlines_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -112,39 +109,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: NumbleStylesheet_ModeSelect_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 602
-        width: 488
-        height: 126
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ddde1595f7af36f00800000000000000
-      internalID: 1109005358129606109
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NumbleStylesheet_ModeSelect_1
+      name: scanlines_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 488
-        height: 589
+        width: 1920
+        height: 1200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bb903e2275998cdc0800000000000000
-      internalID: -3618473701065684549
+      spriteID: 60017ac57853c6a30800000000000000
+      internalID: 4209798607175880710
       vertices: []
       indices: 
       edges: []
@@ -173,8 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      NumbleStylesheet_ModeSelect_0: 1109005358129606109
-      NumbleStylesheet_ModeSelect_1: -3618473701065684549
+      scanlines_0: 4209798607175880710
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

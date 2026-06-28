@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d8302e0340c706743992b363a37f9dc2
+guid: 423f6175929fd564aaa9f843477d3d4e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7469341900316054855
-    second: audioOff_0
+      213: 9143868440440847147
+    second: gear_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,17 +109,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: audioOff_0
+      name: gear_0
       rect:
         serializedVersion: 2
-        x: 17
-        y: 14
-        width: 42
-        height: 67
+        x: 19
+        y: 15
+        width: 66
+        height: 66
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9ba68bdad11975890800000000000000
-      internalID: -7469341900316054855
+      spriteID: b2bb16976eb85ee70800000000000000
+      internalID: 9143868440440847147
       vertices: []
       indices: 
       edges: []
@@ -148,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      audioOff_0: -7469341900316054855
+      gear_0: 9143868440440847147
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

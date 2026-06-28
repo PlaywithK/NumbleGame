@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a82cf97fbcc89f94f8e30e05cbebd91d
+guid: e8106c52de259cb488c780f6f033c7dd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3641609600511444149
-    second: unitygradient_0
+      213: -6920891103041361589
+    second: NumbleStylesheet_ButtonOhneEcken_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,7 +52,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 45, y: 46, z: 47, w: 48}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -73,9 +73,9 @@ TextureImporter:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 0
+    resizeAlgorithm: 1
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -109,27 +109,40 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: unitygradient_0
+      name: NumbleStylesheet_ButtonOhneEcken_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 6
-        height: 3
+        width: 488
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5b4032933a8998230800000000000000
-      internalID: 3641609600511444149
+      spriteID: b49ee02d53e04ff90800000000000000
+      internalID: -6920891103041361589
       vertices: []
       indices: 
       edges: []
@@ -139,7 +152,7 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
@@ -148,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      unitygradient_0: 3641609600511444149
+      NumbleStylesheet_ButtonOhneEcken_0: -6920891103041361589
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

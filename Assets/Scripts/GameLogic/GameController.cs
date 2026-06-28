@@ -27,13 +27,7 @@ public class GameController : MonoBehaviour
     [Header("UI")]
     public TMP_Text attemptsText;
     public TMP_Text timerText;
-
-    [Header("Game Over Panels")]
-    public GameObject winPanel;
-    public TMP_Text winText;
-
-    public GameObject losePanel;
-    public TMP_Text loseText;
+    [SerializeField] private UIManager uiManager;
 
     void Start()
     {
@@ -44,11 +38,6 @@ public class GameController : MonoBehaviour
             endlessWinStreak = 0;
             endlessDigitCount = 3;
         }
-
-#if UNITY_ANDROID || UNITY_EDITOR
-        winText.transform.localScale = Vector3.one * 0.7f;
-        loseText.transform.localScale = Vector3.one * 0.7f;
-#endif
 
         StartGame();
     }
@@ -86,12 +75,15 @@ public class GameController : MonoBehaviour
         {
             uiController.ClearPastAttempts();
             uiController.InitGuessFields(digitCount);
-            
+
             uiController.UpdateFields(new List<int>(), 0);
         }
 
-        losePanel.SetActive(false);
-        winPanel.SetActive(false);
+        if (uiManager != null)
+        {
+            uiManager.HideResultPanel();
+        }
+
         gameEnded = false;
 
         UpdateUI();
@@ -148,7 +140,10 @@ public class GameController : MonoBehaviour
 
         //Normale Win-Logik
         gameEnded = true;
-        winPanel.SetActive(true);
+        if (uiManager != null)
+        {
+            uiManager.ShowResult(true);
+        }
 
         //Achievements checken
         int codeLength = currentCode.Count;
@@ -164,7 +159,10 @@ public class GameController : MonoBehaviour
         if (gameEnded) return;
         gameEnded = true;
 
-        losePanel.SetActive(true);
+        if (uiManager != null)
+        {
+            uiManager.ShowResult(false);
+        }
     }
 
     void UpdateUI()

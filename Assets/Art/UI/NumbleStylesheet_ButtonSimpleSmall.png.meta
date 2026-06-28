@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: fd9a58c63a7c2da4fbdf3665c83494bd
+guid: 8e8eab5a1cf9aab4abc816cc359cae9d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3204923705663743505
-    second: NumbleStylesheet_ButtonMitEcken_0
+      213: 5864061376855513408
+    second: NumbleStylesheet_ButtonSimpleSmall_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,17 +109,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: NumbleStylesheet_ButtonMitEcken_0
+      name: NumbleStylesheet_ButtonSimpleSmall_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 488
-        height: 128
+        width: 168
+        height: 168
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fe91fafbed2d583d0800000000000000
-      internalID: -3204923705663743505
+      spriteID: 0499f8cc0c4516150800000000000000
+      internalID: 5864061376855513408
       vertices: []
       indices: 
       edges: []
@@ -148,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      NumbleStylesheet_ButtonMitEcken_0: -3204923705663743505
+      NumbleStylesheet_ButtonSimpleSmall_0: 5864061376855513408
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
