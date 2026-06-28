@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Achievement  Description
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cf72e0914957a8f4786cadda0e12aaeb, type: 2}
-  m_sharedMaterial: {fileID: -1872766163157270707, guid: cf72e0914957a8f4786cadda0e12aaeb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f690c4376eab8364cb5b8512d2d79ae8, type: 2}
+  m_sharedMaterial: {fileID: 7352140774329605920, guid: f690c4376eab8364cb5b8512d2d79ae8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -103,6 +103,7 @@ MonoBehaviour:
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -281,8 +282,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Achievement Title
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cf72e0914957a8f4786cadda0e12aaeb, type: 2}
-  m_sharedMaterial: {fileID: -1872766163157270707, guid: cf72e0914957a8f4786cadda0e12aaeb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f690c4376eab8364cb5b8512d2d79ae8, type: 2}
+  m_sharedMaterial: {fileID: 7352140774329605920, guid: f690c4376eab8364cb5b8512d2d79ae8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -317,6 +318,7 @@ MonoBehaviour:
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0

@@ -1077,6 +1077,10 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 7ce0b246cea3e3c4f9463507cee319cf, type: 3}
   - name: ButtonClick
     clip: {fileID: 8300000, guid: 25b177d485787a9439da623cdd1786a9, type: 3}
+  - name: GameWin
+    clip: {fileID: 8300000, guid: aaa5283951c46c745bc29ef83a2312e1, type: 3}
+  - name: GameLose
+    clip: {fileID: 8300000, guid: 4406673a2aaa2b4409b21746986a4365, type: 3}
 --- !u!4 &1863219485
 Transform:
   m_ObjectHideFlags: 0

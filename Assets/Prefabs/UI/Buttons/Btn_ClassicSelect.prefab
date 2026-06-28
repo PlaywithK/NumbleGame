@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 3
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cf72e0914957a8f4786cadda0e12aaeb, type: 2}
-  m_sharedMaterial: {fileID: -1872766163157270707, guid: cf72e0914957a8f4786cadda0e12aaeb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f690c4376eab8364cb5b8512d2d79ae8, type: 2}
+  m_sharedMaterial: {fileID: 7352140774329605920, guid: f690c4376eab8364cb5b8512d2d79ae8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -284,13 +284,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e03a2d61f29518468e5dfa55837debe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonComponent
-  hoverScale: {x: 1.1, y: 1.1, z: 1.1}
-  hoverDuration: 0.18
-  wobbleAngle: 4
-  wobbleDuration: 0.14
-  pulseScale: {x: 1.05, y: 1.05, z: 1.05}
-  pulseDelay: 0.55
-  pulseDuration: 0.5
+  _hoverScale: {x: 1.1, y: 1.1, z: 1.1}
+  _hoverDuration: 0.18
+  _useRotation: 1
+  _rotationAngle: 4
+  _rotationDuration: 0.12
+  _pulseScale: {x: 1.05, y: 1.05, z: 1.05}
+  _pulseDuration: 0.5
+  _pressedScale: 0.95
+  _pressDuration: 0.08
+  _releaseDuration: 0.12
+  _clickSfxName: ButtonClick
 --- !u!1 &8815945519971446102
 GameObject:
   m_ObjectHideFlags: 0
@@ -358,8 +362,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Alpha
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cf72e0914957a8f4786cadda0e12aaeb, type: 2}
-  m_sharedMaterial: {fileID: -1872766163157270707, guid: cf72e0914957a8f4786cadda0e12aaeb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f690c4376eab8364cb5b8512d2d79ae8, type: 2}
+  m_sharedMaterial: {fileID: 7352140774329605920, guid: f690c4376eab8364cb5b8512d2d79ae8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
