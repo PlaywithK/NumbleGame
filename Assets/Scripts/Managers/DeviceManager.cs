@@ -4,7 +4,7 @@ using UnityEngine.Rendering.Universal;
 
 public class DeviceManager : MonoBehaviour
 {
-    [SerializeField] private Volume postProcessVolume;
+    [SerializeField] private Volume _postProcessVolume;
     public bool IsMobile()
     {
 #if UNITY_ANDROID || UNITY_IOS
@@ -28,8 +28,8 @@ public class DeviceManager : MonoBehaviour
 
     public void SetPostProcessing()
     {
-        if (postProcessVolume != null &&
-            postProcessVolume.profile.TryGet<LensDistortion>(out var lensDistortion))
+        if (_postProcessVolume != null &&
+            _postProcessVolume.profile.TryGet<LensDistortion>(out var lensDistortion))
         {
             if (IsMobile())
             {

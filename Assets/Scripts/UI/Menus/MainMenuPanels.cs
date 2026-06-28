@@ -23,8 +23,6 @@ public class MainMenuPanels : MonoBehaviour
     public GameObject modeSelectPanel;
     public GameObject classicPanel;
 
-    public DropDownMenu dropDownMenu;
-
     private MenuManager _menuManager;
 
     public void Initialize(MenuManager menuManager)

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6831290131124165566}
   - component: {fileID: 7855308881721220228}
   m_Layer: 5
-  m_Name: Button1
+  m_Name: BTN_Settings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100,7 +100,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 0.53806967, b: 0.15566039, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 2234398712690949920}
   - component: {fileID: 4131049230592842413}
   m_Layer: 5
-  m_Name: Button1 (2)
+  m_Name: BTN_Quit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -220,7 +220,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 0.53806967, b: 0.15566039, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -285,10 +285,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6796140002605886729}
+  - component: {fileID: 7409517023067315232}
   - component: {fileID: 4047563257264173454}
   - component: {fileID: 3514746819178106280}
   - component: {fileID: 6227475023353335752}
-  - component: {fileID: 7409517023067315232}
   m_Layer: 5
   m_Name: DropDownButton
   m_TagString: Untagged
@@ -316,6 +316,26 @@ RectTransform:
   m_AnchoredPosition: {x: 50, y: -50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7409517023067315232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6402280955167306785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c058b69c43d0801458f09ac0b3189a6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _optionsPanel: {fileID: 0}
+  _achievementPanel: {fileID: 0}
+  _quitConfirmPanel: {fileID: 0}
+  _settingsButton: {fileID: 7855308881721220228}
+  _achievementsButton: {fileID: 7618291619041422164}
+  _quitButton: {fileID: 4131049230592842413}
+  _confirmQuitButton: {fileID: 0}
+  _cancelQuitButton: {fileID: 0}
 --- !u!222 &4047563257264173454
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -367,7 +387,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -410,19 +430,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &7409517023067315232
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6402280955167306785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c058b69c43d0801458f09ac0b3189a6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dropdownMenu: {fileID: 7075443355329991788}
 --- !u!1 &7075443355329991788
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,7 +508,7 @@ GameObject:
   - component: {fileID: 1685849272330034050}
   - component: {fileID: 7618291619041422164}
   m_Layer: 5
-  m_Name: Button1 (1)
+  m_Name: BTN_Achievements
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -588,7 +595,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 0.53806967, b: 0.15566039, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
