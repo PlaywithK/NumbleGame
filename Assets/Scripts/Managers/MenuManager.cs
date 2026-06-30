@@ -7,6 +7,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject _mobileCanvas;
     [SerializeField] private GameObject _pcCanvas;
 
+    private LogoBounce _logoContainer;
     private DeviceManager _deviceManager;
     private GameObject _currentCanvas;
     [HideInInspector] public MainMenuPanels currentPanels;
@@ -79,6 +80,7 @@ public class MenuManager : MonoBehaviour
     public void InitializeCanvas(bool isMobile)
     {
         _currentCanvas = Instantiate(isMobile ? _mobileCanvas : _pcCanvas);
+        _logoContainer = _currentCanvas.GetComponentInChildren<LogoBounce>();
         InitializePanels();
     }
 
@@ -104,6 +106,11 @@ public class MenuManager : MonoBehaviour
         HideAllPanels();
         panel.SetActive(true);
         currentPanels.SelectPanelDefault(panel);
+
+        if (_logoContainer.isBouncing)
+        {
+            _logoContainer.StopBounce();
+        }
     }
 
     public void OnModeSelectPressed(int modeIndex)

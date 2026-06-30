@@ -2538,6 +2538,7 @@ GameObject:
   - component: {fileID: 1244461753327154679}
   - component: {fileID: 7064666758259128117}
   - component: {fileID: 4489129454236663047}
+  - component: {fileID: 7416561173540878267}
   m_Layer: 5
   m_Name: Txt_AsciiLogo
   m_TagString: Untagged
@@ -2561,7 +2562,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 75}
+  m_AnchoredPosition: {x: 0, y: 225}
   m_SizeDelta: {x: 1500, y: 450}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7064666758259128117
@@ -2623,15 +2624,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 62.5
-  m_fontSizeBase: 250
+  m_fontSize: 62
+  m_fontSizeBase: 62
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_characterHorizontalScale: 1
@@ -2668,6 +2669,29 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7416561173540878267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3493299355689038570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 643e87d6a25ede849a58bd895976bac4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LogoBounce
+  speed: 250
+  boundsContainer: {fileID: 0}
+  bounceColors:
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  - {r: 0, g: 1, b: 0, a: 1}
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 0, g: 0, b: 1, a: 1}
+  - {r: 1, g: 0, b: 1, a: 1}
+  randomColorOrder: 0
+  isBouncing: 0
 --- !u!1 &3535126609623688937
 GameObject:
   m_ObjectHideFlags: 0

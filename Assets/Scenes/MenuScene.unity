@@ -551,12 +551,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1697003732571196997, guid: 7f4597d5ec2697a4d962c07b5fb34e71, type: 3}
+      propertyPath: m_VolumeTrigger
+      value: 
+      objectReference: {fileID: 2012100312}
+    - target: {fileID: 1697003732571196997, guid: 7f4597d5ec2697a4d962c07b5fb34e71, type: 3}
       propertyPath: m_RenderPostProcessing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697003732571196997, guid: 7f4597d5ec2697a4d962c07b5fb34e71, type: 3}
+      propertyPath: m_VolumeLayerMask.m_Bits
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3382247796099755517, guid: 7f4597d5ec2697a4d962c07b5fb34e71, type: 3}
       propertyPath: m_Name
       value: Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 3382247796099755517, guid: 7f4597d5ec2697a4d962c07b5fb34e71, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8237999904757370518, guid: 7f4597d5ec2697a4d962c07b5fb34e71, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1148,6 +1160,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &2012100312 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8237999904757370518, guid: 7f4597d5ec2697a4d962c07b5fb34e71, type: 3}
+  m_PrefabInstance: {fileID: 1127276099}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
