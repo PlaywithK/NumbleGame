@@ -1,9 +1,19 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System.Collections.Generic;
 
 public class MainMenuPanels : MonoBehaviour
 {
+    [Header("Panels")]
+    public GameObject mainMenuPanel;
+    public GameObject modeSelectPanel;
+    public GameObject classicPanel;
+
+    public GameObject achievementsPanel;
+    public GameObject settingsPanel;
+
+
     [Header("Buttons")]
     [SerializeField] private Button _startButton;
     [SerializeField] private Button _classicModeButton;
@@ -17,13 +27,23 @@ public class MainMenuPanels : MonoBehaviour
     [SerializeField] private Button _backToMainMenu;
     [SerializeField] private Button _backToModeSelect;
 
-    [Header("Panels")]
-    public GameObject mainMenuPanel;
-    public GameObject settingsPanel;
-    public GameObject modeSelectPanel;
-    public GameObject classicPanel;
-
     private MenuManager _menuManager;
+    private GameObject _currentPanel;
+    private bool _selectionAllowed = true;
+    private Dictionary<GameObject, Button> _defaultSelectButtons;
+
+    void Awake()
+    {
+        _defaultSelectButtons = new Dictionary<GameObject, Button>
+    {
+        { mainMenuPanel, _startButton },
+        { modeSelectPanel, _classicModeButton },
+        { classicPanel, _classicModeButton_3 },
+
+        { settingsPanel, _startButton },
+        { achievementsPanel, _startButton }
+    };
+    }
 
     public void Initialize(MenuManager menuManager)
     {
@@ -43,26 +63,40 @@ public class MainMenuPanels : MonoBehaviour
         _classicModeButton_6.onClick.AddListener(() => _menuManager.OnModeSelectPressed(5));
     }
 
+    void OnEnable()
+    {
+        InputManager.OnSelectionModeChanged += HandleSelectionModeChanged;
+    }
+
+    void OnDisable()
+    {
+        InputManager.OnSelectionModeChanged -= HandleSelectionModeChanged;
+    }
+
+    private void HandleSelectionModeChanged(bool allowed)
+    {
+        _selectionAllowed = allowed;
+
+        if (!allowed)
+        {
+            // Maus bewegt -> Selection sofort entfernen
+            EventSystem.current?.SetSelectedGameObject(null);
+        }
+        else
+        {
+            // Wieder Tastatur/Gamepad -> aktuelles Panel erneut selecten
+            if (_currentPanel != null)
+                SelectPanelDefault(_currentPanel);
+        }
+    }
+
     public void SelectPanelDefault(GameObject panel)
     {
-        if (EventSystem.current == null || panel == null) return;
+        _currentPanel = panel;
 
-        Button targetButton = null;
+        if (EventSystem.current == null || panel == null || !_selectionAllowed) return;
 
-        if (panel == mainMenuPanel)
-        {
-            targetButton = _startButton;
-        }
-        else if (panel == modeSelectPanel)
-        {
-            targetButton = _classicModeButton;
-        }
-        else if (panel == classicPanel)
-        {
-            targetButton = _classicModeButton_3;
-        }
-
-        if (targetButton != null)
+        if (_defaultSelectButtons.TryGetValue(panel, out var targetButton) && targetButton != null)
         {
             EventSystem.current.SetSelectedGameObject(targetButton.gameObject);
         }
